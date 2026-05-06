@@ -1,0 +1,84 @@
+wr 8
+
+1. Title 
+Social Media Data Processing using NoSQL (MongoDB) 
+2. Problem Statement 
+Social media platforms generate massive amounts of unstructured and semi-structured 
+data such as posts, comments, hashtags, and user interactions. Traditional relational 
+databases struggle to efficiently store and process such dynamic and high-volume data. 
+Therefore, there is a need for a scalable and flexible database system to handle and 
+analyze social media data effectively. 
+3. Objective 
+● To import unstructured social media dataset into MongoDB  
+● To process and store large-scale data using NoSQL techniques  
+● To perform data analysis such as identifying trending hashtags  
+● To understand querying and aggregation in MongoDB  
+4. Outcome 
+● Successfully stored social media data in MongoDB collections  
+● Extracted meaningful insights such as top trending hashtags  
+● Learned how to use MongoDB queries and aggregation pipeline  
+● Demonstrated efficient handling of unstructured data  
+5. Hardware and Software Requirements 
+Hardware Requirements 
+● System with minimum 4 GB RAM  
+● Processor: Intel i3 or above  
+● Storage: 10 GB free disk space  
+Software Requirements 
+● MongoDB  
+● Operating System: Linux 
+6. Theory 
+6.1 What is NoSQL Database? 
+A NoSQL database is a non-relational database designed to handle large volumes of 
+structured, semi-structured, and unstructured data. It provides flexible schema design and 
+horizontal scalability. 
+Key Features: 
+● Schema-less data model  
+● High scalability  
+● Distributed architecture  
+● High performance for big data  
+Types of NoSQL Databases: 
+● Key-Value Stores  
+● Document Stores  
+● Graph Databases  
+● Wide-Column Stores  
+6.2 What is MongoDB? 
+MongoDB is a document-oriented NoSQL database that stores data in JSON-like format 
+called BSON. 
+Key Features: 
+● Stores data as collections and documents  
+● Flexible schema design  
+● Supports indexing and aggregation  
+● Provides replication and sharding for scalability  
+6.3 Social Media Data Characteristics 
+● Highly unstructured (text, emojis, hashtags)  
+● Large volume and continuous generation  
+● Dynamic schema (varying fields per post)  
+● Requires real-time processing  
+6.4 Data Import into MongoDB 
+● Dataset (JSON) is imported using tools like mongoimport  
+● Data is stored in collections (e.g., posts collection)  
+● Each record is stored as a document  
+6.5 Querying in MongoDB 
+MongoDB supports powerful queries using JSON-like syntax. 
+Examples: 
+● Find all posts containing a specific hashtag  
+● Filter posts by user or date  
+● Count number of posts  
+6.6 Aggregation for Data Analysis 
+Aggregation pipeline is used to process and analyze data. 
+Example Use Case: 
+● Extract hashtags  
+● Group by hashtags  
+● Count occurrences  
+● Sort to find top trending hashtags  
+6.7 Advantages of Using MongoDB for Social Media Data 
+● Handles unstructured data efficiently  
+● Scales horizontally with large datasets  
+● Faster querying compared to relational databases  
+● Flexible schema for evolving data  
+7. Conclusion 
+MongoDB provides an efficient and scalable solution for processing social media data. By 
+using NoSQL techniques, large volumes of unstructured data can be stored and analyzed 
+effectively. The aggregation framework helps in extracting valuable insights such as 
+trending hashtags, making MongoDB a suitable choice for real-time data analytics 
+applications. 
