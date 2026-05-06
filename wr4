@@ -1,0 +1,118 @@
+wr 4
+
+
+Title 
+Development of Customer Order Management System to Retrieve Data Using SQL Multi-Table 
+Joins 
+________________________________________ 
+Aim 
+To retrieve customer and order information from multiple tables using SQL joins such as INNER 
+JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN. 
+________________________________________ 
+Objectives 
+1. 
+2. 
+3. 
+4. 
+To understand the concept of relational databases and multiple tables. 
+To learn how to combine data from multiple tables using SQL joins. 
+To implement INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN. 
+To retrieve meaningful information from the database using join operations. 
+________________________________________ 
+Problem Statement 
+In a Customer Order Management System, data is stored in multiple tables such as Customers 
+and Orders. To generate useful reports such as customer orders, pending orders, or customers 
+without orders, it is necessary to combine data from these tables. SQL join operations are used to 
+retrieve this information efficiently. 
+________________________________________ 
+Outcomes 
+After completing this experiment, students will be able to: 
+1. 
+2. 
+3. 
+Understand the concept of table relationships in relational databases. 
+Apply different types of SQL join operations. 
+Retrieve combined data from multiple tables. 
+________________________________________ 
+Software and Hardware Requirements 
+Hardware Requirements 
+• Computer System 
+• Minimum 4 GB RAM 
+• Processor Intel i3 or higher 
+Software Requirements 
+• MySQL  
+• Operating System: Linux 
+________________________________________ 
+Theory Concept 
+A SQL Join is used to retrieve data from two or more tables based on a related column between 
+them. 
+In relational databases, tables are connected using primary keys and foreign keys. 
+Common types of joins include: 
+1. INNER JOIN 
+Returns only the rows where there is a match in both tables. 
+Example: Retrieve customers who have placed orders. 
+2. LEFT JOIN 
+Returns all records from the left table and matching records from the right table. If no match 
+exists, NULL values are returned. 
+Example: Show all customers including those who have not placed orders. 
+3. RIGHT JOIN 
+Returns all records from the right table and matching records from the left table. 
+Example: Show all orders including those without customer records. 
+4. FULL OUTER JOIN 
+Returns all records from both tables, whether a match exists or not. 
+Example: Show all customers and all orders. 
+Using joins is essential in database systems such as e-commerce platforms, banking systems, and 
+customer management systems. 
+________________________________________ 
+Methodology / Procedure 
+Step 1: Create the Customers table. 
+CREATE TABLE Customers ( 
+CustomerID INT PRIMARY KEY, 
+CustomerName VARCHAR(50), 
+City VARCHAR(50) 
+); 
+Step 2: Create the Orders table. 
+CREATE TABLE Orders ( 
+OrderID INT PRIMARY KEY, 
+CustomerID INT, 
+Product VARCHAR(50), 
+Amount INT 
+); 
+Step 3: Insert sample records into the tables. 
+INSERT INTO Customers VALUES 
+(1,'Rahul','Pune'), 
+(2,'Sneha','Mumbai'), 
+(3,'Amit','Delhi'), 
+(4,'Priya','Chennai'); 
+INSERT INTO Orders VALUES 
+(101,1,'Laptop',60000), 
+(102,1,'Mouse',500), 
+(103,2,'Mobile',20000), 
+(104,5,'Tablet',15000); 
+Step 4: Retrieve customer orders using INNER JOIN. 
+SELECT Customers.CustomerName, Orders.OrderID, Orders.Product 
+FROM Customers 
+INNER JOIN Orders 
+ON Customers.CustomerID = Orders.CustomerID; 
+Step 5: Retrieve all customers using LEFT JOIN. 
+SELECT Customers.CustomerName, Orders.OrderID 
+FROM Customers 
+LEFT JOIN Orders 
+ON Customers.CustomerID = Orders.CustomerID; 
+Step 6: Retrieve all orders using RIGHT JOIN. 
+SELECT Customers.CustomerName, Orders.OrderID 
+FROM Customers 
+RIGHT JOIN Orders 
+ON Customers.CustomerID = Orders.CustomerID; 
+Step 7: Retrieve complete records using FULL OUTER JOIN. 
+SELECT Customers.CustomerName, Orders.OrderID 
+FROM Customers 
+FULL OUTER JOIN Orders 
+ON Customers.CustomerID = Orders.CustomerID; 
+________________________________________ 
+Conclusion 
+In this experiment, a Customer Order Management System was developed using SQL joins. 
+Different types of joins such as INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER 
+JOIN were implemented to retrieve related data from multiple tables. This experiment 
+demonstrated how SQL joins help in efficiently managing and analyzing relational database 
+information in real-world applications. 
