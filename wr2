@@ -1,0 +1,98 @@
+wr 2 
+
+Title 
+Optimizing a Student Course Management System Using Views and Indexing for 
+Faster Query Performance 
+
+
+Aim 
+To understand and implement views and indexing in a Student Course Management 
+System to optimize query performance and enable efficient data retrieval. 
+
+
+Objectives 
+1. To understand the concept of views in SQL and their practical use for reporting. 
+2. To create, update, and delete records using views wherever applicable. 
+3. To understand the concept of indexing and its impact on query performance. 
+4. To implement indexing on frequently searched columns in the database. 
+5. To measure query performance improvements with indexing and views. 
+
+
+Problem Statement 
+A Student Course Management System contains multiple tables such as Students, 
+Courses, and Enrollments. Retrieving detailed student and course information often 
+requires complex joins, which can slow down queries. 
+The task is to: 
+● Create views to simplify reporting on student enrollment and course details. 
+● Update and delete records through views where possible. 
+● Apply indexing on frequently queried columns (e.g., student_id, course_id) to 
+optimize search and query performance. 
+● Measure query execution time before and after indexing to demonstrate 
+performance improvement. 
+Prerequisites 
+● Basic knowledge of SQL commands (DDL, DML) 
+
+
+Theory Concepts 
+1. Views 
+● A view is a virtual table based on the result of a SQL query. 
+● Views do not store data physically but provide a way to simplify complex queries. 
+● Benefits of Views: 
+o Simplifies queries for reporting 
+o Provides security by restricting column visibility 
+o Can be used for updating and deleting records (updatable views) 
+Example Syntax: 
+CREATE VIEW StudentCourseView AS 
+SELECT s.student_id, s.name, c.course_id, c.course_name 
+FROM Students s 
+JOIN Enrollments e ON s.student_id = e.student_id 
+JOIN Courses c ON e.course_id = c.course_id; 
+2. Indexing 
+● An index is a database object that improves the speed of data retrieval. 
+● Indexes are created on columns that are frequently searched, joined, or used in 
+WHERE clauses. 
+● Types of Indexes: 
+o Single-column index – created on one column 
+o Composite index – created on multiple columns 
+o Unique index – ensures unique values for a column 
+Example Syntax: 
+CREATE INDEX idx_student_id ON Students(student_id); 
+CREATE INDEX idx_course_id ON Courses(course_id); 
+Benefits of Indexing: 
+● Reduces the amount of data scanned during queries 
+● Improves SELECT query performance 
+● Can slightly increase storage and update overhead 
+
+
+Methodology / Procedure 
+1. Create Views: 
+o Create views to join Students, Courses, and Enrollments for easy 
+reporting. 
+2. Update/Delete Records Using Views: 
+o Update student or course information through updatable views where 
+allowed. 
+3. Create Indexes: 
+o Identify frequently searched columns (student_id, course_id) 
+o Create single-column or composite indexes 
+4. Query Testing and Performance Measurement: 
+o Execute queries before indexing and record execution time 
+o Execute queries after indexing and record improved execution time 
+5. Analyze Results: 
+o Compare execution times to quantify performance gains 
+Result 
+● Views were successfully created for simplified reporting of students and courses. 
+● Records could be updated and deleted through updatable views. 
+● Indexes significantly improved query performance for searches on student_id 
+and course_id. 
+● Execution plans showed reduced scan time after indexing, demonstrating 
+optimization. 
+
+
+Conclusion 
+Views and indexing are powerful techniques to optimize database performance: 
+● Views simplify complex queries, improve readability, and provide a secure 
+interface for users. 
+● Indexing drastically reduces query execution time for frequently accessed 
+columns. 
+● Combining views and indexes improves both the usability and performance of 
+a Student Course Management System. 
