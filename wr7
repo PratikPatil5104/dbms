@@ -1,0 +1,101 @@
+wr7
+
+
+Assignment No: 7 
+Title: 
+NoSQL Database Introduction – MongoDB Aggregation and Indexing 
+Problem Statement: 
+Perform operations using MongoDB for NoSQL data storage. 
+Design and implement: 
+● Create a MongoDB collection for user data  
+● Perform CRUD (Create, Read, Update, Delete) operations  
+● Write aggregation queries to calculate statistics (total sales, average age)  
+● Create indexes and observe performance improvements  
+Objective: 
+To work with MongoDB for NoSQL data storage and implement aggregation 
+and indexing techniques for efficient data analysis. 
+Outcome: 
+Ability to: 
+● Create and manage MongoDB collections  
+● Perform CRUD operations  
+● Use aggregation framework for analysis  
+● Apply indexing for performance improvement  
+Hardware and Software Requirement: 
+Hardware: 
+1. 64-bit Machine  
+2. Minimum 4GB RAM  
+Software: 
+1. Windows / Ubuntu OS  
+2. MongoDB Server  
+3. MongoDB Compass / Mongo Shell  
+Theory 
+What is NoSQL Database? 
+NoSQL databases are non-relational databases used to store unstructured or 
+semi-structured data. They do not use tables like traditional SQL databases. 
+What is MongoDB? 
+MongoDB is a NoSQL database that stores data in document format 
+(JSON/BSON). It is flexible, scalable, and widely used in modern applications. 
+Features of MongoDB: 
+● Schema-less database  
+● High performance  
+● Scalable  
+● Document-oriented storage  
+● Supports indexing and aggregation  
+What is CRUD Operation? 
+The full form of CRUD is Create, Read, Update, and Delete. These four basic 
+functions represent the essential types of operations that can be performed on data 
+stored within a database. 
+Create Operation 
+The "Create" operation refers to the ability to add new records or data entries into a 
+database. 
+Read Operation 
+The "Read" operation encompasses the retrieval of data from a database. It 
+involves querying the database to select data based on specific criteria or 
+displaying all data within a database. 
+Update Operation 
+The "Update" function pertains to modifying existing data within the database. 
+This operation is vital for maintaining the accuracy and relevance of the stored 
+data. 
+Delete Operation 
+The "Delete" operation refers to the removal of data from a database. It is a critical 
+function for managing the lifecycle of data, allowing for the elimination of 
+outdated, irrelevant, or unnecessary information.  
+What is Aggregation? 
+Aggregation is a concept wherein the connection between two entities is 
+considered as one unified entity. It includes combining the relationships with their 
+respective entities into a better-degree entity. 
+Aggregation in MongoDB is used to process and analyze data by performing 
+operations like: 
+● SUM: It is used for adding things up. 
+● AVG: It is used for finding the middle ground. 
+● Minimum (MIN): It is used to get the singling out of the smallest values. 
+● Maximum (MAX): It is used for singling out for the largest values. 
+● COUNT: It is used for a headcount and DISTINCT for counting unique 
+items. 
+●   $group is used to group data  
+●   $sum calculates total  
+●   $avg calculates average 
+What is Indexing? 
+Indexing in databases is a data structure technique used to speed up data retrieval 
+operations by minimizing the number of disk accesses required to locate records. 
+● Stores copies of selected column (search key) values 
+● Maintains pointers to the actual data rows in the main table 
+● Allows faster searching without scanning the entire table 
+Indexing improves the speed of data retrieval by creating a reference to data. 
+Attributes of Indexing 
+Several important attributes of indexing affect the performance and efficiency of 
+database operations: 
+1. Access Types: This refers to the type of access, such as value-based search, 
+range access, etc. 
+2. Access Time: Refers to the time needed to find a particular data element or 
+set of elements. 
+3. Insertion Time: To the time taken to find the appropriate space and insert 
+new data. 
+4. Deletion Time: Time taken to find an item and delete it as well as update the 
+index structure. 
+5. Space Overhead: It refers to the additional space required by the index. 
+Conclusion 
+In this assignment, we successfully implemented MongoDB operations including 
+CRUD, aggregation, and indexing. The aggregation framework helped in analyzing 
+data efficiently, while indexing improved query performance. MongoDB proved to 
+be a powerful NoSQL database for handling large and flexible datasets. 
