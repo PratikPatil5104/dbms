@@ -1,0 +1,285 @@
+wr6
+
+
+Assignment No: 6 
+Title:
+ 
+Triggers
+ 
+and
+ 
+Cursors
+ 
+in
+ 
+PL/SQL
+ 
+for
+ 
+Employee
+ 
+Management
+ 
+System
+ 
+Problem
+ 
+Statement:
+ 
+Develop an Employee Management System using PL/SQL that implements 
+Triggers
+ 
+and
+ 
+Cursors
+. 
+Design and implement: 
+● A 
+trigger
+ on the Employees table that logs all changes (INSERT, UPDATE, 
+DELETE) into an 
+Employee_Audit
+ table.  
+● A 
+cursor
+ to iterate through employee records and update salaries based on 
+conditions (e.g., increase salary by 10% for employees in the IT department). 
+Objective:
+ 
+To implement Triggers and Cursors in PL/SQL for efficient data handling and auditing. 
+Outcome:
+ 
+Ability to: 
+● Create and use 
+triggers
+ for audit logging  
+● Use 
+cursors
+ for row-by-row processing  
+● Implement real-time database operations in PL/SQL 
+Hardware
+ 
+and
+ 
+Software
+ 
+Requirement:
+ 
+Hardware:
+ 
+1. 64-bit Machine  
+2. Minimum 4GB RAM  
+Software:
+ 
+1. Ubuntu  
+2. Oracle Database  
+3. PL/SQL (SQL Developer / SQL*Plus) 
+Emp_ID
+ 
+Name
+ 
+Department
+ 
+Salary
+ 
+1
+2
+3.
+ 
+Amit
+ 
+IT
+ 
+Neha
+  
+HR
+ 
+Raj
+  
+IT
+  
+5000
+ 
+4000
+ 
+6000
+ 
+Theory 
+What
+ 
+is
+ 
+PL/SQL?
+ 
+PL/SQL is a procedural extension of SQL 
+developed by Oracle Corporation. It allows 
+combining SQL queries with programming constructs like loops, conditions, and 
+exceptions. 
+What
+ 
+is
+ 
+a
+ 
+Trigger?
+ 
+A 
+trigger
+ is a stored PL/SQL block that automatically executes when a specific event 
+occurs on a table. 
+Types
+ 
+of
+ 
+Trigger
+ 
+Events:
+ 
+● INSERT  
+● UPDATE  
+● DELETE  
+Purpose
+ 
+of
+ 
+Trigger:
+ 
+● Maintain audit logs  
+● Enforce business rules  
+● Automate actions 
+What
+ 
+is
+ 
+a
+ 
+Cursor?
+ 
+A 
+cursor
+ is a pointer used to retrieve and process multiple rows from a query result one 
+at a time. 
+Types
+ 
+of
+ 
+Cursor:
+ 
+1. Implicit Cursor  
+2. Explicit Cursor 
+Why
+ 
+Use
+ 
+Triggers
+ 
+and
+ 
+Cursors?
+ 
+● Triggers help in 
+automatic
+ 
+logging
+ 
+and
+ 
+data
+ 
+integrity
+  
+● Cursors help in 
+processing
+ 
+records
+ 
+individually
+ 
+Employees Table 
+Processor: 
+1.Create Employees table 
+CREATE TABLE Employees( 
+emp_id NUMBER PRIMARY KEY, 
+emp_name VARCHAR2(100), 
+department VARCHAR2(50), 
+salary NUMBER 
+); 
+2.CREATE Employee_Audit 
+CREATE TABLE Employee_Audit ( 
+audit_id NUMBER PRIMARY KEY, 
+emp_id NUMBER, 
+action VARCHAR2(10), 
+old_salary NUMBER, 
+new_salary NUMBER, 
+action_date DATE 
+); 
+3.Create sequence of Employee_Audit 
+CREATE SEQUENCE emp_audit_seq 
+START WITH 1 
+INCREMENT BY 1; 
+4. Create Trigger on Employees 
+CREATE OR REPLACE TRIGGER emp_audit_trigger 
+AFTER INSERT OR UPDATE OR DELETE ON Employees 
+FOR EACH ROW 
+BEGIN 
+IF INSERTING THEN 
+INSERT INTO Employee_Audit 
+VALUES(emp_audit_seq.NEXTVAL, :NEW.emp_id, ‘INSERT’, NULL, :NEW.salary, 
+SYSDATE); 
+ELSIF UPDATING THEN 
+INSERT INTO Employee_Audit 
+VALUES(emp_audit_seq.NEXTVAL, :NEW.emp_id, ‘UPDATE’,:OLD.salary, :NEW.salary, 
+SYSDATE); 
+ELSIF DELETING THEN 
+INSERT INTO Employee_Audit 
+VALUES(emp_audit_seq.NEXTVAL, :OLD.emp_id ,’ DELETE&’, :OLD.salary, NULL, 
+SYSDATE); 
+END IF; 
+END; 
+/ 
+5. Insert Record on Employees table 
+INSERT INTO Employees VALUES (1, ‘Amit’, ‘IT,’5000); 
+INSERT INTO Employees VALUES (2, ‘Neha’, ‘HR’, 4000); 
+INSERT INTO Employees VALUES (3,’Raj’,’IT’,6000); 
+6. create cursor 
+DECLARE 
+CURSOR emp_cursor IS 
+SELECT emp_id, salary 
+FROM Employees 
+WHERE department = ‘IT’; 
+v_emp_id Employees.emp_id%TYPE; 
+v_salary Employees.salary%TYPE; 
+BEGIN 
+OPEN emp_cursor; 
+LOOP 
+FETCH emp_cursor INTO v_emp_id, v_salary; 
+EXIT WHEN emp_cursor%NOTFOUND; 
+UPDATE Employees 
+SET salary = v_salary * 1.10 
+WHERE emp_id = v_emp_id; 
+END LOOP; 
+CLOSE emp_cursor; 
+COMMIT; 
+END; 
+/ 
+7. check values salary is updated on employees table 
+SELECT * FROM Employees WHERE department = ‘IT’; 
+8. also check value of employee_audit table 
+SELECT * FROM Employee_Audit WHERE action =’UPDATE’; 
+Conclusion
+ 
+In this assignment, we successfully implemented 
+Triggers
+ 
+and
+ 
+Cursors
+ 
+in
+ 
+PL/SQL
+. The 
+trigger automatically logs all changes made to the Employees table, ensuring proper 
+audit tracking. The cursor efficiently processes multiple records and updates salaries 
+based on conditions. This demonstrates how PL/SQL can be used for automation, data 
+integrity, and efficient database management. 
