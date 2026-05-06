@@ -1,0 +1,62 @@
+ wr 1 
+
+Title 
+Design and Implementation of a University Database System Using MySQL/PostgreSQL
+
+Objectives 
+● To understand the fundamentals of database design and relational database concepts. 
+● To create and implement a relational database using MySQL/PostgreSQL. 
+● To practice defining entities, attributes, and relationships between entities. 
+● To implement one-to-many and many-to-many relationships. 
+● To perform data insertion, retrieval, and queries for practical use cases. 
+
+Problem Statement 
+The aim of this project is to design a University Management System Database that can 
+manage information about students, instructors, courses, and enrollments. The system must 
+maintain the relationships between these entities: 
+● Students can enroll in multiple courses. 
+● Courses can have multiple students. 
+● Instructors can teach one or more courses. 
+
+Software and Hardware Requirements 
+
+Software Requirements: 
+● MySQL Server  
+● MySQL Workbench  
+● Operating System: Ubuntu 
+
+Hardware Requirements: 
+● Processor: Intel i3 or higher 
+● RAM: 4 GB or higher 
+● Hard Disk: 50 GB free space 
+● Internet connectivity (for downloading software and updates) 
+
+
+Theory / Concept (Brief) 
+1. Relational Database 
+A relational database stores data in tables (relations) with rows and columns. Each table 
+represents an entity. 
+2. Entities and Attributes 
+o Student: Represents a student with attributes like StudentID, Name, Email, Age, 
+Address. 
+o Instructor: Represents a faculty member with InstructorID, Name, Email, 
+Department. 
+o Course: Represents a course with CourseID, CourseName, Credits, InstructorID. 
+o Enrollment: Connects students and courses for many-to-many relationships. 
+3. Relationships 
+o One-to-Many: An instructor can teach multiple courses. 
+o Many-to-Many: Students can enroll in multiple courses, and courses can have 
+multiple students. Implemented via the Enrollment table. 
+4. Primary and Foreign Keys 
+o Primary Key: Uniquely identifies each row in a table. 
+o Foreign Key: Ensures referential integrity between related tables. 
+5. Normalization 
+Ensures that data redundancy is minimized, and relationships are properly defined. 
+
+
+Conclusion 
+The University Database System allows efficient management of students, courses, and 
+instructors. By implementing primary and foreign key constraints, the database ensures data 
+integrity and supports complex queries. This project reinforces the concepts of relational 
+databases, entity-relationship modeling, and normalization, providing practical experience in 
+database design and implementation. 
