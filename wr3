@@ -1,0 +1,150 @@
+ wr 3
+
+Title 
+Advanced Querying in a Student Course Management System Using SQL Filters, Sorting, 
+Aggregation, and Nested Subqueries 
+Aim 
+To implement advanced SQL queries in a Student Course Management System using filtering, 
+sorting, aggregation functions, and nested subqueries. 
+Objectives 
+1. To understand the use of SQL filtering using the WHERE clause. 
+2. To learn how to sort data using the ORDER BY clause. 
+3. To perform aggregation operations using GROUP BY. 
+4. To implement nested subqueries for complex database queries. 
+5. To retrieve meaningful insights from the database. 
+Problem Statement 
+Educational institutions maintain databases that contain information about students, courses, and 
+instructors. To generate useful reports such as students above a certain age, course enrollment 
+count, and sorted course lists, advanced SQL querying techniques are required. These techniques 
+include filters, sorting operations, aggregation functions, and nested queries to extract specific 
+information efficiently. 
+Outcomes 
+After completing this experiment, students will be able to: 
+1. Use WHERE clause to filter database records. 
+2. Apply ORDER BY to sort query results. 
+3. Perform aggregation using GROUP BY and functions such as COUNT and AVG. 
+4. Implement nested subqueries for complex query operations. 
+5. Analyze student course data effectively using SQL. 
+Software and Hardware Requirements 
+Hardware Requirements 
+● Computer System 
+● Minimum 4 GB RAM 
+● Processor Intel i3 or higher 
+Software Requirements 
+● MySQL  
+● Operating System:Linux 
+Theory Concept (Brief) 
+SQL (Structured Query Language) is used to retrieve, manipulate, and manage data in relational 
+databases. 
+1. Filtering with WHERE 
+The WHERE clause is used to retrieve records that meet specific conditions. 
+Example: 
+Find students whose age is greater than 20. 
+2. Sorting with ORDER BY 
+The ORDER BY clause is used to sort the query results in ascending or descending order. 
+Example: 
+Sort students alphabetically by name. 
+3. Aggregation with GROUP BY 
+The GROUP BY clause groups rows that have the same values and is often used with aggregate 
+functions such as: 
+● COUNT(): It is used to count the number of rows in a table. It helps summarize data by 
+giving the total number of entries. It can be used in different ways depending on what you 
+want to count: 
+COUNT(*): Counts all rows. 
+COUNT(column_name): Counts non-NULL values in the specified column. 
+COUNT(DISTINCT column_name): Counts unique non-NULL values in the column. 
+● AVG():It is used to calculate average value of a numeric column. It divides sum of all 
+non-NULL values by the number of non-NULL rows for Example, AVG(column_name) 
+returns average of all non-NULL values in the specified column. 
+Query: 
+■ Calculate the average salary 
+SELECT AVG(Salary) AS AverageSalary FROM Employee; 
+■ Average of distinct salaries 
+SELECT AVG(DISTINCT Salary) AS DistinctAvgSalary FROM Employee; 
+● SUM():It is used to calculate the total of a numeric column. It adds up all 
+non-NULL values in that column for Example, SUM(column_name) returns sum 
+of all non-NULL values in the specified column. 
+Query: -- Calculate the total salary 
+SELECT SUM(Salary) AS TotalSalary FROM Employee; -- Calculate the sum of unique salaries 
+SELECT SUM(DISTINCT Salary) AS DistinctSalarySum FROM Employee; 
+● MAX(): MAX() functions return the largest values, respectively, from a column. 
+● - Find the highest salary 
+● SELECT MAX(Salary) AS HighestSalary FROM Employee; 
+● MIN():The MIN() functions return the smallest values, respectively, from a column. 
+● - Find the lowest salary 
+SELECT MIN(Salary) AS LowestSalary FROM Employee; 
+Example: 
+Count the number of students enrolled in each course. 
+4. Nested Subqueries 
+A subquery is a query inside another query. It is used when the result of one query is needed for 
+another query. 
+Example: 
+Find students enrolled in courses that have more than 5 credits. 
+Nested queries are commonly used in complex database analysis. 
+Methodology / Procedure 
+Step 1: Create Students Table 
+CREATE TABLE Students ( 
+StudentID INT PRIMARY KEY, 
+StudentName VARCHAR(50), 
+Age INT, 
+CourseID INT 
+); 
+Step 2: Create Courses Table 
+CREATE TABLE Courses ( 
+CourseID INT PRIMARY KEY, 
+CourseName VARCHAR(50), 
+Instructor VARCHAR(50), 
+Credits INT 
+); 
+Step 3: Insert Sample Data 
+INSERT INTO Students VALUES 
+(1,'Rahul',21,101), 
+(2,'Sneha',19,102), 
+(3,'Amit',22,101), 
+(4,'Priya',20,103), 
+(5,'Karan',23,102); 
+INSERT INTO Courses VALUES 
+(101,'Database Systems','Dr. Sharma',4), 
+(102,'Data Structures','Dr. Mehta',3), 
+(103,'Machine Learning','Dr. Singh',5); 
+Task 1: Filtering Data with WHERE 
+Find students above age 20 
+SELECT *  
+FROM Students 
+WHERE Age > 20; 
+Filter courses taught by a specific instructor 
+SELECT * 
+FROM Courses 
+WHERE Instructor = 'Dr. Sharma'; 
+Task 2: Sorting with ORDER BY 
+Sort students alphabetically 
+SELECT * 
+FROM Students 
+ORDER BY StudentName ASC; 
+Sort courses by credits (highest first) 
+SELECT * 
+FROM Courses 
+ORDER BY Credits DESC; 
+Task 3: Aggregation with GROUP BY 
+Count number of students per course 
+SELECT CourseID, COUNT(StudentID) AS Student_Count 
+FROM Students 
+GROUP BY CourseID; 
+Find average age of students 
+SELECT AVG(Age) AS Average_Age 
+FROM Students; 
+Task 4: Nested Subqueries 
+Find students enrolled in courses with more than 3 credits 
+SELECT StudentName 
+FROM Students 
+WHERE CourseID IN ( 
+SELECT CourseID 
+FROM Courses 
+WHERE Credits > 3 
+); 
+Conclusion 
+In this experiment, advanced SQL querying techniques such as filtering using WHERE, sorting 
+using ORDER BY, aggregation using GROUP BY, and nested subqueries were implemented in a 
+Student Course Management System. These operations allow efficient retrieval and analysis of 
+database records. The experiment demonstrates how SQL can be used to manage and analyze 
+educational data effectively. 
