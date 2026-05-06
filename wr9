@@ -1,0 +1,67 @@
+wr 9 
+
+
+Title 
+MySQL Database Backup and Recovery 
+Objectives 
+● To understand the importance of database backup for data security.  
+● To learn methods of creating backups in MySQL databases.  
+● To practice restoring data from backup files.  
+● To ensure disaster recovery and business continuity in case of data loss.  
+● To gain hands-on experience with MySQL backup and recovery tools. 
+Problem Statement 
+Databases store critical information for organizations and users. Loss of data may occur 
+due to hardware failure, accidental deletion, software corruption, cyberattacks, or 
+natural disasters. Therefore, it is necessary to create regular backups and learn 
+recovery techniques. The objective of this assignment is to perform backup and 
+restoration of a MySQL database using available tools and commands. 
+Outcomes 
+After completing this assignment, the learner will be able to: 
+● Explain the need for database backup and recovery.  
+● Create a backup of a MySQL database using commands or tools.  
+● Restore a MySQL database from backup files.  
+● Handle data loss situations effectively.  
+● Apply best practices for maintaining secure backups.  
+Software and Hardware Requirements 
+Software Requirements 
+  Operating System: Linux 
+  MySQL Server  
+  Terminal 
+Hardware Requirements 
+● Computer/Laptop with minimum 4 GB RAM  
+● Dual-core processor or above  
+● Minimum 10 GB free disk space  
+● Stable power supply 
+Theory Concept in Brief 
+Introduction to Backup 
+A backup is a copy of database data stored separately so that it can be restored when 
+needed. Backups protect against accidental deletion, hardware crashes, and system 
+failures. 
+Types of Backup in MySQL 
+1. Logical Backup  
+o Created using SQL statements.  
+o Example: mysqldump utility.  
+o Produces .sql files.  
+2. Physical Backup  
+o Copies actual database files.  
+o Faster for large databases.  
+3. Full Backup  
+o Entire database is backed up.  
+4. Incremental Backup  
+o Only changes since the last backup are stored. 
+Backup Command Example 
+mysqldump -u root -p database_name > backup_file.sql 
+Example: 
+mysqldump -u root -p college_db &gt; college_backup.sql 
+Recovery Command Example 
+mysql -u root -p database_name < backup_file.sql 
+Example: 
+mysql -u root -p college_db &lt; college_backup.sql 
+Importance of Recovery 
+Recovery ensures that data can be restored quickly after failure, reducing downtime and 
+preventing permanent data loss. 
+Conclusion 
+Backup and recovery are essential parts of database management. Regular backups 
+protect valuable data from unexpected failures and mistakes. MySQL provides simple 
+and effective tools like mysqldump for backup and restoration. By practicing these 
+operations, users can ensure data availability, security, and reliable disaster recovery. 
